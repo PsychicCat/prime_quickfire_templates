@@ -1,9 +1,9 @@
 $(document).ready(function(){
 
-    $('#submit').on('click', function(e){
+    $('form').on('submit', function(e){
         e.preventDefault();
-        var firstname = $(this).parent().serializeArray()[0];
-        var lastname = $(this).parent().serializeArray()[1];
+        var firstname = $(this).serializeArray()[0];
+        var lastname = $(this).serializeArray()[1];
 
         var data = {
             firstName: firstname.value,
@@ -13,7 +13,7 @@ $(document).ready(function(){
         $.ajax({
             url: '/students',
             type: 'POST',
-            data: data
+            data: data,
         }).done(function(response, textStatus, jqXHR){
             console.log('Added student!');
         }).fail(function( jqXHR, textStatus, errorThrown ) {
