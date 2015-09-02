@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1 Student List
+
+  form
+    fieldset
+      legend Add New Student:
+      label(for="firstName") First Name:
+      input(type="text" name="firstName" id="firstName")
+      label(for="lastName") Last Name:
+      input(type="text" id="lastName" name="lastName")
+      button#submit(value="Submit") Submit
+
+  ul#contents
+    each student in students
+      include ./students.jade
